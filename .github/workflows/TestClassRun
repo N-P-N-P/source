@@ -1,8 +1,8 @@
----
 name: Salesforce Code Analyzer
 on:
   push:
-    branches: main
+    branches: 
+      - main
   workflow_dispatch: null
 jobs:
   salesforce-code-analyzer:
