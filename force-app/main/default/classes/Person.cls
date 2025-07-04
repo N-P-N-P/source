@@ -3,10 +3,10 @@ public class Person {
     public Integer age;
 
     public void walk() {
-        // Code for walking goes here
+        // #Code for walking goes here
     }
 
     public void talk() {
-        // Code for talking goes here
+        // #Code for talking goes here
     }
 }
