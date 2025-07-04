@@ -1,0 +1,29 @@
+name: Auto PR on Push
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to match your branch naming
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make a change (example)
+        run: echo "Updated on $(date)" >> update.log
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: automated update"
+          title: "Automated PR from GitHub Action"
+          body: "This pull request was created automatically by a GitHub Action."
+          base: main  # Target branch
+          branch: auto/update-${{ github.run_id }}
